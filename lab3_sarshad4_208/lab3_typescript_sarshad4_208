@@ -1,0 +1,262 @@
+Script started on Wed 14 Feb 2018 04:54:40 PM EST
+[?1034hbash-4.1$ date 
+Wed Feb 14 16:54:43 EST 2018
+bash-4.1$ uname -a
+Linux Zeus-1 2.6.32-696.18.7.el6.centos.plus.x86_64 #1 SMP Tue Jan 9 14:11:50 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ ls
+lab3_sarsha4_208.c  lab3_typescript_sarshad4_208  Makefile
+bash-4.1$ cd [K[Kat lab3_
+lab3_sarsha4_208.c            lab3_typescript_sarshad4_208
+bash-4.1$ cat lab3_cat [K[K[K[K[K[K3_sarsha4@[K_208
+cat: lab3_sarsha4_208: No such file or directory
+bash-4.1$ cat lab3_sarshad4_[K[K[K4_208.c
+/*
+ *  * Saad Arshad 00857432
+ *   * CS 262, Lab Section 208
+ *    * Lab 3
+ *     */
+
+#include <stdio.h>
+#include <stdlib.h>
+#define BSIZE 100
+
+
+char getPrintMenu(char , char[]);
+void getplusFigure(char, int);
+char getcharChoice(char, char[]);
+int getnumChoice(int , char[]);
+void getxFigure(char , int);
+int main()
+{
+	int x = 0;
+	while(x != 6)
+	{
+		char Buffer[BSIZE];
+		char choice;
+		choice = getPrintMenu(choice, Buffer);
+		char characterChosen;
+		int  numberChosen;
+
+		switch (choice)
+		{
+			case 'C':
+			case 'c':
+				characterChosen = getcharChoice(characterChosen , Buffer);		
+				break;
+
+			case 'N':
+			case 'n':
+				numberChosen = getnumChoice(numberChosen, Buffer);
+				break;
+
+			case '1':
+				getplusFigure(characterChosen, numberChosen);
+				break;
+			case '2':
+				getxFigure(characterChosen, numberChosen);
+				break;
+			case 'Q':
+			case 'q':
+				printf("Closing Program.\n");
+				x = 6;
+				break;
+			default:
+				printf("Invalid input.\n");
+				break;
+
+		}//switch
+
+
+	}//while
+
+
+
+}
+
+char getPrintMenu(char choice, char Buffer[]) 
+{
+	printf("Enter/Change Character C or c\n");
+	printf("Enter/Change Number N or n\n");
+	printf("Print Plus (+) Figure 1 \n");
+	printf("Print X Figure 2 \n");
+	printf("Quit Program Q or q\n");
+	fgets(Buffer, BSIZE, stdin);
+	sscanf(Buffer, "%c", &choice);
+	return choice;	
+
+}
+
+char getcharChoice(char characterChosen, char Buffer[])
+{
+	printf("Enter your choice of character \n");
+	fgets(Buffer, BSIZE, stdin);
+	sscanf(Buffer, "%c", &characterChosen);
+	return characterChosen;	
+} 
+
+int getnumChoice(int numberChosen, char Buffer[])
+{
+	int valid = 0;
+	do
+	{
+		printf("Enter your number choice \n");
+		fgets(Buffer, BSIZE, stdin);
+		sscanf(Buffer,"%d", &numberChosen);
+		if(numberChosen >= 3 && numberChosen <= 15 && numberChosen%2 == 1)
+		{
+			valid = 1;
+		}
+		else
+		{
+			printf("Invalid entry, please reenter input.\n");
+			//valid = 0;
+		}
+	}while(valid == 0);
+	return numberChosen;
+}
+
+
+void getplusFigure(char x, int size)
+{
+	int r;
+	int c;
+	//int size = y;
+	//printf("SIZE: %d\n", size);
+	for(r = 0; r < size; r++)
+	{
+		//printf("R: %d\n", r);
+		for(c = 0; c < size; c++)
+		{
+			//printf("C: %d\n", c);
+			if(r == size/2)
+			{
+				printf("%c",x);
+			}
+			else if(c == size/2)
+			{
+				printf("%c",x);
+			}
+			else 
+			{
+				printf(" ");
+			}
+		}printf("\n"); 
+	}			
+	
+
+
+}
+
+
+void getxFigure(char x, int size)
+{
+	int r;
+	int c;
+
+	for(r=0; r < size; r++)
+	{
+		for(c = 0; c < size; c++)
+		{
+			if(r==c || r+c == size -1)
+			{
+				printf("%C", x);
+			}
+			else
+			{
+				printf(" ");
+			}
+		}printf("\n");
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+bash-4.1$ cat Makefile
+# A simple Makefile
+# # Saad Arshad 00857432
+# # CS 262, Lab Section 208
+# # Lab 3
+# The compiler: gg for C programs, g++ for C++ programs, etc
+
+CC = gcc
+CFLAGS = -g -Wall
+TARGET = lab3_sarsha4_208
+
+all: $(TARGET)
+
+$(TARGET): $(TARGET).c
+	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c
+
+clean:
+	rm $(TARGET)
+bash-4.1$ make
+gcc -g -Wall -o lab3_sarsha4_208 lab3_sarsha4_208.c
+bash-4.1$ lab3_sarsha4_208 
+Enter/Change Character C or c
+Enter/Change Number N or n
+Print Plus (+) Figure 1 
+Print X Figure 2 
+Quit Program Q or q
+C
+Enter your choice of character 
+&
+Enter/Change Character C or c
+Enter/Change Number N or n
+Print Plus (+) Figure 1 
+Print X Figure 2 
+Quit Program Q or q
+n
+Enter your number choice 
+-5
+Invalid entry, please reenter input.
+Enter your number choice 
+7
+Enter/Change Character C or c
+Enter/Change Number N or n
+Print Plus (+) Figure 1 
+Print X Figure 2 
+Quit Program Q or q
+2
+&     &
+ &   & 
+  & &  
+   &   
+  & &  
+ &   & 
+&     &
+Enter/Change Character C or c
+Enter/Change Number N or n
+Print Plus (+) Figure 1 
+Print X Figure 2 
+Quit Program Q or q
+1
+   &   
+   &   
+   &   
+&&&&&&&
+   &   
+   &   
+   &   
+Enter/Change Character C or c
+Enter/Change Number N or n
+Print Plus (+) Figure 1 
+Print X Figure 2 
+Quit Program Q or q
+Q
+Closing Program.
+bash-4.1$ ls
+lab3_sarsha4_208  lab3_sarsha4_208.c  lab3_typescript_sarshad4_208  Makefile
+bash-4.1$ exit
+
+Script done on Wed 14 Feb 2018 04:56:25 PM EST

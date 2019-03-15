@@ -1,0 +1,166 @@
+Script started on Tue 06 Feb 2018 03:22:24 PM EST
+[?1034hbash-4.1$ date
+Tue Feb  6 15:22:27 EST 2018
+bash-4.1$ uname-a
+bash: uname-a: command not found
+bash-4.1$ uname - a
+uname: extra operand `-'
+Try `uname --help' for more information.
+bash-4.1$ uname -a
+Linux Zeus-2 2.6.32-696.18.7.el6.centos.plus.x86_64 #1 SMP Tue Jan 9 14:11:50 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ ls
+lab2_sarshad4_208.c  lab2_typescript_sarshad4_208  Makefile
+bash-4.1$ cd[K[Kcat lab2_sarshad4_208.c 
+/*
+ * Saad Arshad 00857432
+ * CS 262, Lab Section 208
+ * Lab 2
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#define BSIZE (100)
+
+double getAGI(double, char[]);
+int getTaxr(int , char[]);
+double getNetIncome(double, int);
+int main()
+{
+	char Buffer[BSIZE];
+	int taxrate = 0;
+	double agi = 0.0;
+	double neti = 0.0;
+	
+	printf("Hello and welcome to your tax calculator\n");
+	agi = getAGI(agi , Buffer);
+	taxrate = getTaxr(taxrate , Buffer);
+
+	printf ("Your AGI is %.2lf and your taxrate is %d\n ", agi, taxrate);
+	printf("Now calculating your net income after paying taxes\n");
+	neti = getNetIncome(agi , taxrate);
+	
+	printf("Your net income after taxes is %lf\n ",neti);
+	
+	
+
+}
+
+double getAGI(double agi, char Buffer[])
+{
+
+	printf("Please enter your AGI first to begin\n");
+	fgets(Buffer, BSIZE, stdin);
+	sscanf(Buffer,"%lf" , &agi);
+	if(agi < 0)
+	{
+		printf("You can not put a negative number\n");
+		exit(1);
+	}
+	return agi;
+}
+
+int getTaxr(int taxrate, char Buffer[])
+{
+	printf("Enter taxrate in whole number\n");
+	fgets(Buffer, BSIZE, stdin);
+	sscanf(Buffer, "%d", &taxrate);
+	if(taxrate < 0)
+	{
+		printf("you can not put a negative number\n");
+		exit(1);
+	}
+	return taxrate;
+}
+
+double getNetIncome(double agi, int taxrate)
+{
+ return agi - ((taxrate/100.0) *agi);		
+}
+bash-4.1$ cat Makefile
+# A simple Makefile
+# # Saad Arshad 00857432
+# # CS 262, Lab Section 208
+# # Lab 2
+
+all: lab2_sarshad4_208.c
+	gcc -g -Wall -o lab2_sarshad4_208 lab2_sarshad4_208.c
+
+clean:
+	rm lab2_sarshad4_208
+bash-4.1$ make
+gcc -g -Wall -o lab2_sarshad4_208 lab2_sarshad4_208.c
+bash-4.1$ ls
+lab2_sarshad4_208  lab2_sarshad4_208.c	lab2_typescript_sarshad4_208  Makefile
+bash-4.1$ lab2_sarsa[Khad4_208 
+Hello and welcome to your tax calculator
+Please enter your AGI first to begin
+52  2300.5
+Enter taxrate in whole number
+10
+Your AGI is 2300.50 and your taxrate is 10
+ Now calculating your net income after paying taxes
+Your net income after taxes is 2070.450000
+ bash-4.1$ lab2_sarshad4_208 
+Hello and welcome to your tax calculator
+Please enter your AGI first to begin
+2300.5
+Enter taxrate in whole number
+0
+Your AGI is 2300.50 and your taxrate is 0
+ Now calculating your net income after paying taxes
+Your net income after taxes is 2300.500000
+ bash-4.1$ lab2_sarshad4_208 
+Hello and welcome to your tax calculator
+Please enter your AGI first to begin
+-47.23
+You can not put a negative number
+bash-4.1$ lab2_sarshad4_208 
+Hello and welcome to your tax calculator
+Please enter your AGI first to begin
+0
+Enter taxrate in whole number
+20
+Your AGI is 0.00 and your taxrate is 20
+ Now calculating your net income after paying taxes
+Your net income after taxes is 0.000000
+ bash-4.1$ lab2_sarshad4_208 
+Hello and welcome to your tax calculator
+Please enter your AGI first to begin
+10
+Enter taxrate in whole number
+15
+Your AGI is 10.00 and your taxrate is 15
+ Now calculating your net income after paying taxes
+Your net income after taxes is 8.500000
+ bash-4.1$ lab2_sarshad4_208 
+Hello and welcome to your tax calculator
+Please enter your AGI first to begin
+7894.63
+Enter taxrate in whole number
+17
+Your AGI is 7894.63 and your taxrate is 17
+ Now calculating your net income after paying taxes
+Your net income after taxes is 6552.542900
+ bash-4.1$ labw[K2_sarshad4_208 
+Hello and welcome to your tax calculator
+Please enter your AGI first to begin
+7894.63
+Enter taxrate in whole number
+-17
+you can not put a negative number
+bash-4.1$ lab2_sarshad4_208 
+Hello and welcome to your tax calculator
+Please enter your AGI first to begin
+10000
+Enter taxrate in whole number
+18
+Your AGI is 10000.00 and your taxrate is 18
+ Now calculating your net income after paying taxes
+Your net income after taxes is 8200.000000
+ bash-4.1$ make clean
+rm lab2_sarshad4_208
+bash-4.1$ ls
+lab2_sarshad4_208.c  lab2_typescript_sarshad4_208  Makefile
+bash-4.1$ exit
+
+Script done on Tue 06 Feb 2018 03:27:01 PM EST

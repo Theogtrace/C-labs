@@ -1,0 +1,314 @@
+Script started on Thu 26 Apr 2018 03:43:12 PM EDT
+[?1034hbash-4.1$ data
+bash: data: command not found
+bash-4.1$ uname -a
+Linux Zeus-2 2.6.32-696.18.7.el6.centos.plus.x86_64 #1 SMP Tue Jan 9 14:11:50 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ ls
+lab11.c  lab11Typescript_sarshad4_208  Makefile
+bash-4.1$ cat lab11.c
+/*
+ * 	Saad Arshad 00857432
+ * 	CS2662 lab 208
+ * 	lab 11
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node
+{
+		int numbers;
+		struct node *next;
+}node;
+
+void insertNode(node* head, int num);
+void printList(node* head);
+void deleteList(node* head);
+
+int main(int argc, char *argv[] )
+{
+	//	Check if proper number of arguements was entered
+	if ( argc != 4)
+	{
+		printf("Incorrect number of arguements entered.\n");
+		exit(1);
+	}
+	
+	//make a random number seed
+	int seed;
+	seed = atoi(argv[1]);
+	srandom(seed);
+	
+	//set Number of random numbers to generate
+	int numberofRan;
+	numberofRan = atoi(argv[2]);
+	
+	//set max value of random number
+	int maxValues;
+	maxValues = atoi(argv[3]);
+	
+	//Create a node head with malloc and set it to next.
+	node* head = malloc(sizeof(node));
+	if(head == NULL)
+	{
+		printf("Error allocating memory for head node.\n");
+		exit(1);
+	}
+	head -> numbers = -1;
+	head -> next = NULL;
+
+	long randNum;
+	int i;
+	int insert;
+	
+	printf("Generating random numbers:\n");
+	
+	for(i = 0; i < (numberofRan -1); i++)
+	{
+		randNum = random();
+		insert = randNum % maxValues;
+		printf("%d\n", insert);
+		insertNode(head, insert);
+	}
+	
+	printList(head);
+	deleteList(head);
+	return 0;
+}
+
+void insertNode(node* head, int num)
+{
+	node *holder = head;
+	while(holder -> numbers > num)
+	{
+		holder = holder -> next;
+	}
+	node *newNode = malloc(sizeof(node));
+	if(newNode == NULL)
+	{
+		printf("Error allocating memory.\n");
+		exit(1);
+	}
+	newNode -> numbers = num;
+	newNode -> next = NULL;
+	
+	holder -> next = newNode;
+}
+//prints the list of numbers
+void printList(node* head)
+{
+	node *holder = head;
+	printf("Numbers:\n");
+	if(holder != NULL)
+	{
+		holder = holder -> next;
+		while(holder != NULL)
+		{
+			printf("%d\n",holder -> numbers);
+			holder = holder -> next;
+		}
+	}
+}
+//goes throw and frees the next and the head
+void deleteList(node* head)
+{
+	node *holder, *holder1;
+	
+	if(head != NULL)
+	{
+		holder = head -> next;
+		head -> next = NULL;
+		
+		while(holder != NULL)
+		{
+			holder1 = holder -> next;
+			free(holder);
+			holder = holder1;
+		}
+	}
+	free(head);
+}
+
+
+
+
+
+bash-4.1$ cat Makefile 
+# A simple Makefile
+# # Saad Arshad 00857432
+# # CS 262, Lab Section 208
+# # project3
+
+CC = gcc
+CFLAGS = -g -Wall -pedantic-errors
+
+TARGET1 = lab11
+
+all: $(TARGET1)
+
+$(TARGET1):
+	$(CC) $(CFLAGS) -o $(TARGET1) $(TARGET1).c
+
+clean:
+	rm $(TARGET1)
+bash-4.1$ ls
+lab11.c  lab11Typescript_sarshad4_208  Makefile
+bash-4.1$ make
+gcc -g -Wall -pedantic-errors -o lab11 lab11.c
+bash-4.1$ val[K[K[Kls
+lab11  lab11.c	lab11Typescript_sarshad4_208  Makefile
+bash-4.1$ valgrind --leak-l[Kcheck=yes lab11
+==10608== Memcheck, a memory error detector
+==10608== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==10608== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==10608== Command: lab11
+==10608== 
+Incorrect number of arguements entered.
+==10608== 
+==10608== HEAP SUMMARY:
+==10608==     in use at exit: 0 bytes in 0 blocks
+==10608==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==10608== 
+==10608== All heap blocks were freed -- no leaks are possible
+==10608== 
+==10608== For counts of detected and suppressed errors, rerun with: -v
+==10608== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 4 from 4)
+bash-4.1$ ls
+lab11  lab11.c	lab11Typescript_sarshad4_208  Makefile
+bash-4.1$ [Kbash-4.1$ [Kbash-4.1$ lab11 262262 50 1000
+Generating random numbers:
+204
+853
+664
+472
+581
+379
+342
+360
+178
+170
+161
+260
+16
+486
+306
+106
+174
+144
+123
+221
+678
+117
+71
+161
+19
+433
+483
+910
+120
+862
+701
+324
+67
+365
+149
+649
+744
+491
+361
+275
+13
+522
+887
+29
+8
+194
+488
+182
+338
+Numbers:
+338
+bash-4.1$ valgrind --leak-check=yes lab11 262262 50 1000
+==10692== Memcheck, a memory error detector
+==10692== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==10692== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==10692== Command: lab11 262262 50 1000
+==10692== 
+Generating random numbers:
+204
+853
+664
+472
+581
+379
+342
+360
+178
+170
+161
+260
+16
+486
+306
+106
+174
+144
+123
+221
+678
+117
+71
+161
+19
+433
+483
+910
+120
+862
+701
+324
+67
+365
+149
+649
+744
+491
+361
+275
+13
+522
+887
+29
+8
+194
+488
+182
+338
+Numbers:
+338
+==10692== 
+==10692== HEAP SUMMARY:
+==10692==     in use at exit: 768 bytes in 48 blocks
+==10692==   total heap usage: 50 allocs, 2 frees, 800 bytes allocated
+==10692== 
+==10692== 768 bytes in 48 blocks are definitely lost in loss record 1 of 1
+==10692==    at 0x4A08178: malloc (vg_replace_malloc.c:298)
+==10692==    by 0x400887: insertNode (lab11.c:78)
+==10692==    by 0x40081F: main (lab11.c:63)
+==10692== 
+==10692== LEAK SUMMARY:
+==10692==    definitely lost: 768 bytes in 48 blocks
+==10692==    indirectly lost: 0 bytes in 0 blocks
+==10692==      possibly lost: 0 bytes in 0 blocks
+==10692==    still reachable: 0 bytes in 0 blocks
+==10692==         suppressed: 0 bytes in 0 blocks
+==10692== 
+==10692== For counts of detected and suppressed errors, rerun with: -v
+==10692== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 4 from 4)
+bash-4.1$ ls
+lab11  lab11.c	lab11Typescript_sarshad4_208  Makefile
+bash-4.1$ make clean
+rm lab11
+bash-4.1$ exit
+
+Script done on Thu 26 Apr 2018 03:45:26 PM EDT

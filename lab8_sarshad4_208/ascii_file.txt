@@ -1,0 +1,27 @@
+100
+234.567
+This is a line of text.
+200
+345.678
+This is another line of text.
+300
+456.789
+This is not a line of text.
+400
+678.901
+
+500
+123.456
+Back to writing lines of text again.
+600
+234.567
+This is a very, very long line of text.
+700
+345.432
+Ok, this is getting tedious
+800
+456.654
+Why not take a vacation in Norway this year?
+900
+567.654
+The last line for this text file

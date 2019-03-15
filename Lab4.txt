@@ -1,0 +1,56 @@
+﻿Saad Arshad
+CS262-208
+G#00857432
+Step #1:
+How many errors appear? 2
+How many warnings appear? 1 
+
+Step #2:
+
+Step #3:
+Run the program, and at the prompt, enter the value 10.
+What happens? Segmentation fault
+
+What value is printed after “The sum of integers 0 to 10 is: “ ? 10
+What value *should* have been printed? 55
+How many warnings appear without the -Wall option? None 
+How many warnings appear with the -Wall option? 2
+
+Step #4:
+How many times does the printf statement you added get executed? 1
+List in order the values output by the printf statement you added: I =10 sum =10
+
+Answer the following questions again, based on the most recent code execution:
+How many times does the printf statement you added get executed? 1
+List the values output by the printf statement you added: i=10 sum=10
+What is the value of sum output by the program in the final statement? 10
+
+Compile and run the code again (using 10 as input). Did the warning message go away? Yes
+
+
+
+Now answer the following questions:
+How many times does the printf statement you added get executed? 1
+List the values output by the printf statement you added: i=10 sum=10
+What is the value of sum output by the program in the final statement? 10
+
+Comment out the for loop, and copy it to the line below, this time without the semicolon.
+Compile and run the program again (using 10 as input). Now answer the questions:
+How many times does the printf statement you added get executed? 10
+List the values output by the printf statement you added: i=0 sum=0,i=1 sum =1, i=2 sum=3, i=3 sum=6, i=4 sum=10. i=5 sum=15, i=6 sum=21, i=7 sum=28, i=8 sum=36, i=9 sum=45
+What is the value of sum output by the program in the final statement? 45
+Is the final value of sum correct? (Look at your answer to step #3 above) No
+
+You are supposed to add the integers from 0 to 10. Which integer is missing? 10
+
+Compile and run the code again (using 10 as input):
+Answer the following questions:
+How many times does the printf statement you added get executed? 11
+List the values output by the printf statement you added: i=0 sum=0,i=1 sum =1, i=2 sum=3, i=3 sum=6, i=4 sum=10. i=5 sum=15, i=6 sum=21, i=7 sum=28, i=8 sum=36, i=9 sum=45, i=10 sum=55
+What is the value of sum output by the program in the final statement? 55
+
+Step #5:
+Recompile, and run the code. Has the output changed? No
+Step #6:If you haven't already, create an electronic version of this page. You can either keep it as html, copy it to a text file, or a Word compatible document. Fill out the answer sheet with the responses you recorded as you went through the lab. Then submit this document using Blackboard.
+*** YOU ARE DONE!!! ***
+

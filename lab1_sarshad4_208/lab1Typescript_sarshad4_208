@@ -1,0 +1,52 @@
+Script started on Tue 23 Jan 2018 03:56:42 PM EST
+[?1034hbash-4.1$ Tyep[K[Kpe:date
+bash: Type:date: command not found
+bash-4.1$ date
+Tue Jan 23 15:57:11 EST 2018
+bash-4.1$ sarshad[K[K[K[Kshad4 -a
+bash: sarshad4: command not found
+bash-4.1$ sarshad[K[K[K[K[K[K[Kuname -a
+Linux Zeus-1 2.6.32-696.18.7.el6.centos.plus.x86_64 #1 SMP Tue Jan 9 14:11:50 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ pwd
+/home/sarshad4/CS262/lab1_sarshad4_208
+bash-4.1$ ls
+lab1_sarshad4_208.c  lab1Typescript_sarshad4_208  Makefile
+bash-4.1$ cat lab1_sarshad4_208.c 
+/*
+ *  * <Saad Arshad and G Number 00857432 >
+ *   * CS 262, Lab Section <208 >
+ *    * Lab 1
+ *     */
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    printf("Hello world!\n");
+	
+    printf("My name is Saad Arshad \n ");
+    return 0;
+}
+bash-4.1$ rm lab1 lab1_sarshad4_208.c [K[K[K 
+rm: cannot remove `lab1': No such file or directory
+rm: cannot remove `lab1_sarshad4_208': No such file or directory
+bash-4.1$ make all
+gcc -g -Wall -o lab1_sarshad4_208 lab1_sarshad4_208.c
+bash-4.1$ ls
+lab1_sarshad4_208  lab1_sarshad4_208.c	lab1Typescript_sarshad4_208  Makefile
+bash-4.1$ lab1_sarshad_[K4_208
+Hello world!
+My name is Saad Arshad 
+ bash-4.1$ ls
+lab1_sarshad4_208  lab1_sarshad4_208.c	lab1Typescript_sarshad4_208  Makefile
+bash-4.1$ lab1
+bash: lab1: command not found
+bash-4.1$ gcc -g-Wall-o -Wall-o[1P-Wall-o[C Wall-o[C[1@ [1@ [C[C[C[1P Wall-o- Wall-o[1PWall-o[1P[C[C[C[C[C[C[C -o[C[C lab1 lab1_sarshad4_208.c
+bash-4.1$ ls
+lab1  lab1_sarshad4_208  lab1_sarshad4_208.c  lab1Typescript_sarshad4_208  Makefile
+bash-4.1$ lab1
+Hello world!
+My name is Saad Arshad 
+ bash-4.1$ exit
+
+Script done on Tue 23 Jan 2018 04:00:47 PM EST
